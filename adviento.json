@@ -1,0 +1,178 @@
+{
+  "config": {
+    "titulo": "Nuestro Calendario de Adviento",
+    "subtitulo": "24 puertas, 24 pequeños momentos solo para ti"
+  },
+  "dias": {
+    "1": {
+      "titulo": "Empieza la magia",
+      "intro": {
+        "texto": "Hoy empieza un regalo un poco largo, pero hecho desde el corazón \n\nHay días que creo que te van a gustar bastante y otros que supongo que te gustarán menos, pero quiero que sepas que te lo he hecho con todo mi corazoncito porque te amo mucho.\n\nDale al botón para empezar con el día 1.",
+        "boton": "✨Empezar con el día 1"
+      },
+      "texto": "Primera prueba: **¿cuánto me conoces?** Si aciertas las tres, hay premio",
+      "quiz": [
+        {
+          "pregunta": "¿Cuál es mi comida favorita?",
+          "opciones": [
+            "Pizza",
+            "Sopa",
+            "Croquetas"
+          ],
+          "correcta": 1
+        },
+        {
+          "pregunta": "¿Cómo se llamaba el pez que tuve de pequeña?",
+          "opciones": [
+            "Nemo",
+            "Marlin",
+            "Dori"
+          ],
+          "correcta": 0
+        },
+        {
+          "pregunta": "¿Cuál era mi instrumento favorito?",
+          "opciones": [
+            "Flauta",
+            "Piano",
+            "Ukelele"
+          ],
+          "correcta": 0
+        }
+      ],
+      "premio": {
+        "texto": "¡Las has acertado todas! Has ganado una tabletita de chocolate como la de la foto.",
+        "imagen": "imagenes/chocolate.png"
+      }
+    },
+    "2": {
+      "titulo": "Letroso secreto",
+      "texto": "Hoy tengo preparado un juego para ti **Llámame** y pincha en el botón.",
+      "enlaces": [
+        {
+          "texto": "Jugar",
+          "url": "https://lapalabradeldia.com/personalizada/?p=ZmVsaXo%3D&t=false"
+        }
+      ]
+    },
+    "3": {
+      "titulo": "Cata de turrones",
+      "imagen": "imagenes/cata_turrones.png"
+    },
+    "4": {
+      "titulo": "Un comodín",
+      "imagen": "imagenes/comodin.png"
+    },
+    "5": {
+      "titulo": "Benditas paellas",
+      "imagen": "imagenes/foto_paellas.jpeg",
+      "texto": "Este día fue raro, muy raro. Yo no había estado así nunca y, la verdad, me arrepiento de haber estado así, pero siempre estaré agradecida, porque gracias a ir así me acerqué a hablar con la persona que acabaría convirtiéndose en el amor de mi vida\n\nEsta es la única foto en la que se nos ve juntos, pero no podía hacer este calendario sin hablar de este día."
+    },
+    "6": {
+      "titulo": "Una sopita para ti",
+      "texto": "En el día de hoy te he preparado un jueguito muy fácil, pero con una frasecita mía para ti. Dale al botón.",
+      "enlaces": [
+        {
+          "texto": "Ir al juego",
+          "url": "https://www.educima.com/wordsearches/una_sopita_para_ti-936df5854144ebadadc68b24a144cfe6"
+        }
+      ]
+    },
+    "7": {
+      "titulo": "Tu cena favorita",
+      "imagen": "imagenes/vale_cena.png"
+    },
+    "8": {
+      "titulo": "A veces se me olvida",
+      "texto": "En estos últimos meses he sido muy pesadita con la canción «Dama y Vagabundo» (la de «a veces se me olvida»), pero quiero que sepas que lo que a mí **NUNCA** se me va a olvidar es lo mucho que te amo, porque eres mi personita especial\n\nSi quieres escuchar la canción, dale al botón.",
+      "enlaces": [
+        {
+          "texto": "Escuchar en Spotify",
+          "url": "https://open.spotify.com/intl-es/track/7FluWUa59Z3kXYdbguz8Wr?si=259b9d15ec3a4536"
+        }
+      ]
+    },
+    "9": {
+      "titulo": "Planes de 2027",
+      "imagen": "imagenes/planes.png"
+    },
+    "10": {
+      "titulo": "Gracias bichito",
+      "imagen": "imagenes/foto_barbas.jpeg",
+      "texto": "Prueba número 1 de que hay milagros de Navidad: yo, sin salir corriendo, al lado de un perro\n\nQuería darte las gracias, porque no lo has hecho de golpe ni a la fuerza. Me has ido acercando poco a poco, con paciencia y sin reírte de mí (bueno, solo un poquito). Gracias por hacerme más fuerte y por ayudarme a superar uno de mis miedos."
+    },
+    "11": {
+      "titulo": "Reto del día",
+      "imagen": "imagenes/reto_movil.png"
+    },
+    "12": {
+      "titulo": "Aventura en el súper",
+      "imagen": "imagenes/compra.png"
+    },
+    "13": {
+      "titulo": "Partido de tenis",
+      "imagen": "imagenes/tenis.png"
+    },
+    "14": {
+      "titulo": "Nuestro primer viaje",
+      "imagen": "imagenes/foto_primer_viaje.png",
+      "texto": "Nuestro primer viaje… qué experiencia más bonita. Me encantó hacer un viaje contigo y, aunque no nos encantó el sitio porque no había casi nada que hacer, me lo pasé genial porque, como siempre te digo: **contigo me lo paso muy bien hasta sin hacer nada**."
+    },
+    "15": {
+      "titulo": "Masaje",
+      "imagen": "imagenes/vale_masaje.png"
+    },
+    "16": {
+      "titulo": "Cerrando una etapa",
+      "imagen": "imagenes/graduacion.jpeg",
+      "texto": "No tenemos ni una foto decente de este día, pero tampoco podía faltar una foto de él. Me encantó poder compartir contigo el cierre de la etapa en la que te conocí."
+    },
+    "17": {
+      "titulo": "Adivina la peli",
+      "imagen": "imagenes/adivina_peli.png",
+      "adivina": {
+        "pregunta": "¿Qué película es?",
+        "respuestas": [
+          "ice age",
+          "edad de hielo",
+          "era de hielo",
+          "ice age 6"
+        ],
+        "acierto": "¡Correcto! Tengo muchísimas ganas de ir al cine contigo y me encanta hacerlo: la película se estrena el 5 de febrero."
+      }
+    },
+    "18": {
+      "titulo": "Tres cosas que me encantan de ti",
+      "imagen": "imagenes/tres_cosas.png"
+    },
+    "19": {
+      "titulo": "Noche de juegos",
+      "imagen": "imagenes/juegos.png"
+    },
+    "20": {
+      "titulo": "Viaje a Castejón",
+      "imagen": "imagenes/foto_viaje_castejon.jpeg",
+      "texto": "Hoy me voy al pueblo y quiero recordarte lo especial que fue para mí cuando nos fuimos de viaje con tu familia a Castejón. Muchas gracias por ese viaje.\n\nHoy, que me voy a mi casa, agradezco cómo estuve en ese viaje, porque me sentí como en casa."
+    },
+    "21": {
+      "titulo": "Plan de tarde",
+      "imagen": "imagenes/vale_plan_tarde.png"
+    },
+    "22": {
+      "titulo": "Peli o serie",
+      "imagen": "imagenes/vale_peli.png"
+    },
+    "23": {
+      "titulo": "¿Dónde vamos?",
+      "imagen": "imagenes/viajes.png"
+    },
+    "24": {
+      "titulo": "Mi cazador favorito",
+      "texto": "Este regalo llega a su fin. Espero que durante todos estos días hayas disfrutado tanto como yo, tanto preparándolo como viéndote abrirlo.\n\nQuiero que siempre recuerdes que eres mi pequeñín, y que aunque a mí me cuesta (aunque no lo parezca) hacer regalos que no sean materiales, contigo siempre es fácil, porque sé que vas a valorar y disfrutar el regalo que te haga, sea lo que sea. Gracias por ser conmigo como eres.\n\nDale al botón y espero que te guste este último regalín",
+      "revelar": {
+        "boton": "Pulsa aquí para saber más",
+        "imagen": "imagenes/carta_pokemon.png"
+      }
+    }
+  }
+}
