@@ -99,9 +99,9 @@ def ruta_media(valor: str) -> str:
 def mostrar_enlace(item):
     """Acepta una URL o {"texto": "...", "url": "..."}. Si está vacío, se ignora."""
     if isinstance(item, dict):
-        url, texto = item.get("url", ""), item.get("texto", "Abrir enlace")
+        url, texto = item.get("url", ""), item.get("texto", "🔗 Abrir enlace")
     else:
-        url, texto = item, "Abrir enlace"
+        url, texto = item, "🔗 Abrir enlace"
     if not url.startswith("http"):
         return
     if isinstance(item, dict):  # con "texto" -> siempre un botón que abre el enlace
@@ -164,7 +164,7 @@ def mostrar_imagenes(valor):
             ruta = resolver_imagen(v)
             if not ruta:
                 if st.session_state.get("auth"):  # solo lo ves tú, con sesión privada
-                    st.caption(f"Falta la imagen: {v}")
+                    st.caption(f"🖼️ Falta la imagen: {v}")
             elif ruta.startswith("http"):
                 st.markdown(caja_imagen(ruta, max_w), unsafe_allow_html=True)
             else:
@@ -211,9 +211,18 @@ div[data-testid="stImage"] img { max-width: 100%; height: auto; border-radius: 1
 div[class*="st-key-puerta_"] button {
   width: 100%; border-radius: 14px; border: 2px solid #f4d58d;
   transition: transform .15s, box-shadow .15s;
+  padding: 0 .2rem !important; overflow: visible !important;
+  display: flex; align-items: center; justify-content: center;
+}
+/* Que el número y el candado nunca se recorten (letra cursiva con rabillos altos) */
+div[class*="st-key-puerta_"] button *,
+div[class*="st-key-puerta_"] button p {
+  overflow: visible !important; text-overflow: clip !important;
+  white-space: nowrap !important; margin: 0 !important;
 }
 div[class*="st-key-puerta_"] button p {
-  font-family: 'Great Vibes', cursive; font-size: 2.4rem; line-height: 1;
+  font-family: 'Great Vibes', cursive; line-height: 1.7 !important;
+  font-size: clamp(1.5rem, 5.5vw, 2.4rem);  /* se adapta al ancho de la puerta */
 }
 div[class*="st-key-puerta_"] button:hover { transform: scale(1.04) rotate(-1deg); }
 </style>
@@ -233,7 +242,7 @@ PLANTILLAS = {
 def css_puertas(estados: dict, alturas: dict) -> str:
     reglas = ""
     for d, estado in estados.items():
-        extra = "font-size: 3.4rem;" if d == 24 else ""
+        extra = "font-size: clamp(2.2rem, 8vw, 3.4rem);" if d == 24 else ""
         reglas += (f'.st-key-puerta_{d} button {{ height: {alturas[d]}px; '
                    f'{PLANTILLAS[estado]} }}\n'
                    f'.st-key-puerta_{d} button p {{ {extra} }}\n')
@@ -249,12 +258,12 @@ def render_quiz(d: int, quiz: list, premio: dict):
             for i, q in enumerate(quiz)]
     if st.button("Comprobar", key=f"quiz_ok_{d}"):
         if None in resp:
-            st.warning("Contesta a todas, que no vale dejar ninguna")
+            st.warning("Contesta a todas, que no vale dejar ninguna 😉")
         else:
             aciertos = sum(r == q["opciones"][q["correcta"]] for r, q in zip(resp, quiz))
             st.session_state[f"ganado_{d}"] = aciertos == len(quiz)
             if aciertos != len(quiz):
-                st.error(f"{aciertos} de {len(quiz)}. ¡Casi! Prueba otra vez")
+                st.error(f"{aciertos} de {len(quiz)}. ¡Casi! Prueba otra vez 😏")
     if st.session_state.get(f"ganado_{d}"):
         st.success(premio.get("texto", "¡Premio!"))
         mostrar_imagenes(premio.get("imagen"))
@@ -270,7 +279,7 @@ def render_adivina(d: int, a: dict):
         if any(norm(x) in norm(r) for x in a["respuestas"]):
             st.success(a["acierto"])
         else:
-            st.error("Mmm… no es esa. ¡Sigue intentándolo!")
+            st.error("Mmm… no es esa. ¡Sigue intentándolo! 🤔")
 
 
 def render_revelar(d: int, r: dict):
@@ -285,7 +294,7 @@ def render_revelar(d: int, r: dict):
 def render_dia(d: int, c: dict):
     """Pinta el contenido definido en adviento.json para ese día."""
     if not c:
-        st.info("Este día aún no tiene contenido… ¡se está preparando algo!")
+        st.info("Este día aún no tiene contenido… ¡se está preparando algo! 💌")
         return
     if c.get("titulo"):
         st.markdown(f"<h2 style='font-family:Great Vibes,cursive;font-size:2.6rem;"
@@ -310,9 +319,9 @@ def render_dia(d: int, c: dict):
     for item in c.get("enlaces", []):
         mostrar_enlace(item)
     if c.get("reto"):
-        st.info(f"**Reto del día:** {c['reto']}")
+        st.info(f"🎯 **Reto del día:** {c['reto']}")
     if c.get("vale"):
-        st.success(f"**Vale:** {c['vale']}")
+        st.success(f"🎟️ **Vale:** {c['vale']}")
     if c.get("revelar"):
         render_revelar(d, c["revelar"])
     if c.get("firma"):
@@ -333,7 +342,7 @@ st.session_state.setdefault("abiertas_prueba", set())
 
 # --- Barra lateral: modo prueba (oculta y con contraseña) -------------------
 forzar = False
-with st.sidebar.expander("Zona privada"):
+with st.sidebar.expander("🔧 Zona privada"):
     if not st.session_state.get("auth"):
         pw = st.text_input("Contraseña", type="password")
         if pw:
@@ -347,7 +356,7 @@ with st.sidebar.expander("Zona privada"):
         st.caption(f"Días abiertos guardados: {sorted(st.session_state['abiertas']) or 'ninguno'}")
         if st.session_state.get("aviso_estado"):
             st.warning("No pude guardar en GitHub (revisa los Secrets). Se guardó solo en local.")
-        if st.checkbox("Quiero reiniciar los días abiertos") and st.button("Reiniciar ahora"):
+        if st.checkbox("Quiero reiniciar los días abiertos") and st.button("🗑️ Reiniciar ahora"):
             estado.guardar(set(), reemplazar=True)
             st.session_state["abiertas"] = set()
             st.session_state["abiertas_prueba"] = set()
@@ -370,9 +379,9 @@ if hoy < inicio:
                 f"puerta ✨</p>", unsafe_allow_html=True)
 else:
     st.markdown(f"<p class='aviso'>Hoy es {hoy.day} de {MESES[hoy.month]} · "
-                f"busca la puerta que toca.</p>", unsafe_allow_html=True)
+                f"busca la puerta que toca 🔎</p>", unsafe_allow_html=True)
 if forzar:
-    st.warning("Modo prueba activo: todas las puertas están abiertas.")
+    st.warning("🔧 Modo prueba activo: todas las puertas están abiertas.")
 
 # --- Estados y estilos de cada puerta ---------------------------------------
 alturas = {d: h for fila in DISPOSICION for d, _, h in fila}
